@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Analysis chess by d1mosa",
+  "version": "0.3",
+  "permissions": ["storage"],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_popup": "popup/popup.html"},
+  "content_scripts": [
+    {
+      "matches": ["https://lichess.org/*"],
+      "js": ["source.js"]
+    },
+    {
+      "matches": ["https://arslanovchess.com/games-analysis*"],
+      "js": ["target.js"]
+    }
+  ]
+}
