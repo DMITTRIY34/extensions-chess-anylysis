@@ -86,7 +86,7 @@ chrome.storage.local.get(["pendingPgn", "nick"], async ({ pendingPgn, nick }) =>
   if (!pendingPgn) return;
   chrome.storage.local.remove("pendingPgn");
 
-  const color = color(pendingPgn, nick);
+  const color = detectColor(pendingPgn, nick);
   try {
     await run(pendingPgn);
     if (color) await chooseColor(color);
